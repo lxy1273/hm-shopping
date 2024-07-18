@@ -1,0 +1,25 @@
+// vant-ui按需导入
+import Vue from 'vue'
+import { Popup, Tab, Tabs, AddressList, AddressEdit, Checkbox, CheckboxGroup, Search, Swipe, Button, Tabbar, TabbarItem, Icon, NavBar, Toast, SwipeItem, Grid, GridItem, Rate, ActionSheet, Dialog } from 'vant'
+
+Vue.use(Button)
+Vue.use(Tabbar)
+Vue.use(TabbarItem)
+Vue.use(Icon)
+Vue.use(NavBar)
+Vue.use(Search)
+Vue.use(Swipe)
+Vue.use(SwipeItem)
+Vue.use(Grid)
+Vue.use(GridItem)
+Vue.use(Toast)
+Vue.use(Rate)
+Vue.use(ActionSheet)
+Vue.use(Dialog)
+Vue.use(Checkbox)
+Vue.use(CheckboxGroup)
+Vue.use(AddressEdit)
+Vue.use(AddressList)
+Vue.use(Tab)
+Vue.use(Tabs)
+Vue.use(Popup)
