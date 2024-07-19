@@ -7,7 +7,7 @@
     <div class="address-edit">
       <van-dialog v-model="show" title="地址编辑">
         <van-address-edit :address-info="addressEditInfo" :area-list="areaList" show-delete show-set-default
-          :area-columns-placeholder="['请选择', '请选择', '请选择']" @save="onSave" @delete="onDelete" />
+          :area-columns-placeholder="['请选择', '请选择', '请选择']" @save="onSave" @delete="onDelete" change-default="changeDefault"/>
       </van-dialog>
     </div>
   </div>
@@ -47,7 +47,6 @@ export default {
     },
     // 地址列表-编辑地址
     onEdit (item, index) {
-      console.log(this.areaList)
       this.addressEditInfo = this.addressList[index]
       this.show = true
     },
@@ -84,6 +83,7 @@ export default {
         res.addressDetail = item.detail
         return res
       })
+      console.log(this.addressList)
     },
     async addAddressInfo (name, phone, detail) {
       await addAddress(name, phone, detail)

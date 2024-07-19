@@ -59,3 +59,10 @@ export const addressRemove = (addressId) => {
     addressId: addressId
   })
 }
+
+// 设置默认地址
+export const addressSetDefault = (addressId) => {
+  request.post('/address/setDefault', {
+    addressId: addressId
+  })
+}
