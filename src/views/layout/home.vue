@@ -38,7 +38,7 @@ import { getHomeData } from '@/api/home'
 import GoodsItem from '@/components/GoodsItem.vue'
 export default {
   name: 'home',
-  data() {
+  data () {
     return {
       bannerList: [], // 轮播图
       navList: [], // 导航
@@ -48,7 +48,7 @@ export default {
   components: {
     GoodsItem
   },
-  async created() {
+  async created () {
     const { data: { pageData } } = await getHomeData()
     this.bannerList = pageData.items[1].data
     this.navList = pageData.items[3].data
