@@ -4,13 +4,7 @@
     <van-nav-bar title="智慧商城" fixed />
 
     <!-- 搜索框 -->
-    <van-search
-      readonly
-      shape="round"
-      background="#f1f1f2"
-      placeholder="请在此输入搜索关键词"
-      @click="$router.push('/search')"
-    />
+    <van-search readonly shape="round" background="#f1f1f2" placeholder="请在此输入搜索关键词" @click="$router.push('/search')" />
 
     <!-- 轮播图 -->
     <van-swipe class="my-swipe" :autoplay="3000" indicator-color="white">
@@ -19,12 +13,8 @@
 
     <!-- 导航 -->
     <van-grid column-num="5" icon-size="40">
-      <van-grid-item
-        v-for="item in navList" :key="item.imgUrl"
-        :icon="item.imgUrl"
-        text="新品首发"
-        @click="$router.push('/category')"
-      />
+      <van-grid-item v-for="item in navList" :key="item.imgUrl" :icon="item.imgUrl" text="新品首发"
+        @click="$router.push('/category')" />
     </van-grid>
 
     <!-- 主会场 -->
@@ -48,7 +38,7 @@ import { getHomeData } from '@/api/home'
 import GoodsItem from '@/components/GoodsItem.vue'
 export default {
   name: 'home',
-  data () {
+  data() {
     return {
       bannerList: [], // 轮播图
       navList: [], // 导航
@@ -58,7 +48,7 @@ export default {
   components: {
     GoodsItem
   },
-  async created () {
+  async created() {
     const { data: { pageData } } = await getHomeData()
     this.bannerList = pageData.items[1].data
     this.navList = pageData.items[3].data
@@ -78,6 +68,7 @@ export default {
 .van-nav-bar {
   z-index: 999;
   background-color: #c21401;
+
   ::v-deep .van-nav-bar__title {
     color: #fff;
   }
@@ -99,6 +90,7 @@ export default {
   text-align: center;
   background-color: #39a9ed;
 }
+
 .my-swipe .van-swipe-item img {
   width: 100%;
   height: 185px;

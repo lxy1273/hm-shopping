@@ -15,15 +15,16 @@
 
 <script>
 import { areaList } from '@vant/area-data'
+
 import { getAddress, addAddress, addressEdit, addressRemove } from '@/api/address'
 export default {
-  data () {
+  data() {
     return {
       chosenAddressId: '1',
       flag: 0,
       addressList: [
       ],
-      // 地址编辑弹出窗flag
+      // 地址编辑弹出窗fslag
       show: false,
       // 地址编辑地区列表
       areaList,
@@ -35,23 +36,24 @@ export default {
   },
   methods: {
     // 页面更新，状态恢复，弹窗数据重置，由于多次使用，进行封装
-    dialogReset () {
+    dialogReset() {
       this.show = false
       this.getAddressList()
       this.addressEditInfo = {}
     },
     // 地址列表-新增地址
-    onAdd () {
+    onAdd() {
       this.addressEditInfo = undefined
       this.show = true
     },
     // 地址列表-编辑地址
-    onEdit (item, index) {
+    onEdit(item, index) {
+      console.log(this.areaList)
       this.addressEditInfo = this.addressList[index]
       this.show = true
     },
     // 编辑弹窗-编辑地址保存,content为表单内容
-    onSave (content) {
+    onSave(content) {
       // flag等于0，标志着该保存为新增地址
       if (this.addressEditInfo === undefined) {
         const { name, tel, addressDetail } = content
@@ -64,12 +66,12 @@ export default {
       }
     },
     // 编辑弹窗-删除地址
-    onDelete (content) {
+    onDelete(content) {
       this.addressDelete(content.id)
       this.dialogReset()
     },
     // 获取所有的地址信息
-    async getAddressList () {
+    async getAddressList() {
       const { data } = await getAddress()
       this.addressList = data.list.map((item) => {
         const res = {}
@@ -84,17 +86,17 @@ export default {
         return res
       })
     },
-    async addAddressInfo (name, phone, detail) {
+    async addAddressInfo(name, phone, detail) {
       await addAddress(name, phone, detail)
     },
-    async addressInfoEdit (addressId, name, phone, detail) {
+    async addressInfoEdit(addressId, name, phone, detail) {
       await addressEdit(addressId, name, phone, detail)
     },
-    async addressDelete (addressId) {
+    async addressDelete(addressId) {
       await addressRemove(addressId)
     }
   },
-  created () {
+  created() {
     this.getAddressList()
   }
 }
