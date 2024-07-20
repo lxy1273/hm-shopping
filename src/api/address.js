@@ -30,7 +30,7 @@ export const addAddress = (name, phone, detail) => {
 
 // 编辑地址
 export const addressEdit = (addressId, name, phone, detail) => {
-  request.post('/address/edit', {
+  return request.post('/address/edit', {
     addressId: addressId,
     form: {
       name: name,
@@ -55,14 +55,19 @@ export const addressEdit = (addressId, name, phone, detail) => {
 
 // 删除收获地址
 export const addressRemove = (addressId) => {
-  request.post('/address/remove', {
+  return request.post('/address/remove', {
     addressId: addressId
   })
 }
 
 // 设置默认地址
 export const addressSetDefault = (addressId) => {
-  request.post('/address/setDefault', {
+  return request.post('/address/setDefault', {
     addressId: addressId
   })
+}
+
+// 获取默认收货地址的id
+export const getDefaultId = () => {
+  return request.get('/address/defaultId')
 }
