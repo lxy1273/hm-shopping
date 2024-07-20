@@ -57,6 +57,7 @@ export default {
     },
     // 编辑弹窗-编辑地址保存,content为表单内容
     onSave (content) {
+      console.log('编辑')
       // flag等于0，标志着该保存为新增地址
       if (this.addressEditInfo === undefined) {
         const { name, tel, addressDetail } = content
